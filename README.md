@@ -60,7 +60,8 @@ Note: my config is setup to gabz-firedept and another one
 OPTIONAL EMS PERMISSIONS .. ADD TO YOUR qb-ambulancejob/server/main.lua
 
 replace these revivep with
-```QBCore.Commands.Add("revivep", Lang:t('info.revive_player'), {}, false, function(source, args)
+```
+QBCore.Commands.Add("revivep", Lang:t('info.revive_player'), {}, false, function(source, args)
 	local src = source
 	local Player = QBCore.Functions.GetPlayer(src)
 	if Player.PlayerData.job.name == "ambulance" or Player.PlayerData.job.name == "firefighter" then
@@ -68,10 +69,12 @@ replace these revivep with
 	else
 		TriggerClientEvent('QBCore:Notify', src, Lang:t('error.not_ems'), "error")
 	end
-end)```
+end)
+```
 
 replace status with
-```QBCore.Commands.Add("status", Lang:t('info.check_health'), {}, false, function(source, args)
+```
+QBCore.Commands.Add("status", Lang:t('info.check_health'), {}, false, function(source, args)
 	local src = source
 	local Player = QBCore.Functions.GetPlayer(src)
 	if Player.PlayerData.job.name == "ambulance" or Player.PlayerData.job.name == "firefighter" then
@@ -79,10 +82,12 @@ replace status with
 	else
 		TriggerClientEvent('QBCore:Notify', src, Lang:t('error.not_ems'), "error")
 	end
-end)```
+end)
+```
 
 replace heal with
-```QBCore.Commands.Add("heal", Lang:t('info.heal_player'), {}, false, function(source, args)
+```
+QBCore.Commands.Add("heal", Lang:t('info.heal_player'), {}, false, function(source, args)
 	local src = source
 	local Player = QBCore.Functions.GetPlayer(src)
 	if Player.PlayerData.job.name == "ambulance" or Player.PlayerData.job.name == "firefighter" then
@@ -90,7 +95,8 @@ replace heal with
 	else
 		TriggerClientEvent('QBCore:Notify', src, Lang:t('error.not_ems'), "error")
 	end
-end)```
+end)
+```
 
 
 ## Dependencies
