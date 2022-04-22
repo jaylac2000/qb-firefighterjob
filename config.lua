@@ -1,5 +1,7 @@
 Config = {}
 
+--Config.UseTarget = GetConvar('UseTarget', false)
+
 Config.Locations = {
     ["duty"] = {
         [1] = vector3(-653.73, -87.68, 38.79), -- HQ
@@ -27,48 +29,111 @@ Config.Locations = {
         [3] = vector3(1216.91, -1474.23, 34.86), -- FS7
     },
     ["stations"] = {
-        [1] = {label = "Fire Department HQ", coords = vector4(-660.42, -77.13, 38.8, 15.25)},
-        [2] = {label = "Davis Fire Department", coords = vector4(199.96, -1634.66, 30.02, 319.89)},
-        [3] = {label = "Fire Station 7", coords = vector4(1185.59, -1464.36, 35.07, 3.96)}
+        [1] = {label = Lang:t('info.fd_station'), coords = vector4(-660.42, -77.13, 38.8, 15.25)},
+        [2] = {label = Lang:t('info.fd_station'), coords = vector4(199.96, -1634.66, 30.02, 319.89)},
+        [3] = {label = Lang:t('info.fd_station'), coords = vector4(1185.59, -1464.36, 35.07, 3.96)}
     }
 }
 
 Config.AuthorizedVehicles = {
-	-- Grade 0
+	-- Grade 0 VOLUNTEER
 	[0] = {
 		["firetruk"] = "Fire Truck",
 	},
-	-- Grade 1
+	-- Grade 1 RECRUIT
 	[1] = {
 		["firetruk"] = "Fire Truck",
-
+        ["ambulance"] = "Ambulance",
+        ["ENLADDER"] = "Ladder Truck",
 	},
-	-- Grade 2
+	-- Grade 2 FIREFIGHTER
 	[2] = {
 		["firetruk"] = "Fire Truck",
+        ["ambulance"] = "Ambulance",
+        ["ENLADDER"] = "Ladder Truck",
+        ["firecharger"] = "Fire Charger",
+        ["fireatv"] = "ATV",
+        ["code3trailer2"] = "Trailer",
 	},
-	-- Grade 3
+	-- Grade 3 SHIFT LEADER
 	[3] = {
 		["firetruk"] = "Fire Truck",
+        ["ambulance"] = "Ambulance",
+        ["ENLADDER"] = "Ladder Truck",
+        ["legchgr"] = "Car 1 Charger",
+        ["EMSF250"] = "EMS/Fire F250",
+        ["legexp"] = "Fire Med Explorer",
+        ["firecharger"] = "Fire Charger",
+        ["fireatv"] = "ATV",
+        ["code3trailer2"] = "Trailer",
 	},
-	-- Grade 4
+	-- Grade 4 LIEUTENANT
 	[4] = {
 		["firetruk"] = "Fire Truck",
+        ["ambulance"] = "Ambulance",
+        ["legtahoe"] = "Car 2 Tahoe",
+        ["ENLADDER"] = "Ladder Truck",
+        ["legchgr"] = "Car 1 Charger",
+        ["EMSF250"] = "EMS/Fire F250",
+        ["legexp"] = "Fire Med Explorer",
+        ["firecharger"] = "Fire Charger",
+        ["fireatv"] = "ATV",
+        ["code3trailer2"] = "Trailer",
 	},
-    -- Grade 5
+    -- Grade 5 CAPTAIN
 	[5] = {
 		["firetruk"] = "Fire Truck",
+        ["ambulance"] = "Ambulance",
+        ["13fire"] = "BC Ford Expedition",
+        ["19firetahoe"] = "BC 2019 Tahoe",
+        ["legtahoe"] = "Car 2 Tahoe",
+        ["ENLADDER"] = "Ladder Truck",
+        ["legchgr"] = "Car 1 Charger",
+        ["EMSF250"] = "EMS/Fire F250",
+        ["legexp"] = "Fire Med Explorer",
+        ["firecharger"] = "Fire Charger",
+        ["fireatv"] = "ATV",
+        ["code3trailer2"] = "Trailer",
 	},
-    -- Grade 6
+    -- Grade 6 ASST. CHIEF
 	[6] = {
 		["firetruk"] = "Fire Truck",
+        ["ambulance"] = "Ambulance",
+        ["fsilv"] = "Asst Chief Truck",
+        ["13fire"] = "BC Ford Expedition",
+        ["19firetahoe"] = "BC 2019 Tahoe",
+        ["legtahoe"] = "Car 2 Tahoe",
+        ["ENLADDER"] = "Ladder Truck",
+        ["legchgr"] = "Car 1 Charger",
+        ["EMSF250"] = "EMS/Fire F250",
+        ["legexp"] = "Fire Med Explorer",
+        ["firecharger"] = "Fire Charger",
+        ["fireatv"] = "ATV",
+        ["code3trailer2"] = "Trailer",
+	},
+    -- Grade 7 CHIEF
+    [6] = {
+		["firetruk"] = "Fire Truck",
+        ["ambulance"] = "Ambulance",
+        ["17silvrb"] = "Chief Silverado",
+        ["fsilv"] = "Asst Chief Truck",
+        ["13fire"] = "BC Ford Expedition",
+        ["19firetahoe"] = "BC 2019 Tahoe",
+        ["legtahoe"] = "Car 2 Tahoe",
+        ["ENLADDER"] = "Ladder Truck",
+        ["legchgr"] = "Car 1 Charger",
+        ["EMSF250"] = "EMS/Fire F250",
+        ["legexp"] = "Fire Med Explorer",
+        ["firecharger"] = "Fire Charger",
+        ["fireatv"] = "ATV",
+        ["code3trailer2"] = "Trailer",
 	}
 }
 
 Config.Helicopter = "polmav"
 
 Config.Items = {
-    label = "Firefighter Armory",
+    label = Lang:t('info.safe'),
     slots = 30,
     items = {
         [1] = {
@@ -147,9 +212,25 @@ Config.Items = {
 }
 
 Config.VehicleSettings = {
-    ["car1"] = { -- Model name
+    ["firecharger"] = {
         ["extras"] = {
-            ["1"] = false, -- on/off
+            ["1"] = true,
+            ["2"] = true,
+            ["3"] = true,
+            ["4"] = true,
+            ["5"] = true,
+            ["6"] = true,
+            --["7"] = false,
+            ["8"] = true,
+            ["9"] = true,
+            ["10"] = true,
+            ["11"] = true,
+            ["12"] = true,
+        }
+    },
+    ["ENLADDER"] = {
+        ["extras"] = {
+            ["1"] = true,
             ["2"] = true,
             ["3"] = true,
             ["4"] = true,
@@ -163,9 +244,25 @@ Config.VehicleSettings = {
             ["12"] = true,
         }
     },
-    ["car2"] = {
+    ["fsilv"] = {
         ["extras"] = {
-            ["1"] = false,
+            ["1"] = true,
+            ["2"] = true,
+            ["3"] = true,
+            --["4"] = false,
+            ["5"] = true,
+            ["6"] = true,
+            ["7"] = true,
+            ["8"] = true,
+            ["9"] = true,
+            ["10"] = true,
+            ["11"] = true,
+            ["12"] = true,
+        }
+    },
+    ["13fire"] = {
+        ["extras"] = {
+            ["1"] = true,
             ["2"] = true,
             ["3"] = true,
             ["4"] = true,
@@ -175,6 +272,102 @@ Config.VehicleSettings = {
             ["8"] = true,
             ["9"] = true,
             ["10"] = true,
+            ["11"] = true,
+            ["12"] = true,
+        }
+    },
+    ["19firetahoe"] = {
+        ["extras"] = {
+            ["1"] = true,
+            ["2"] = true,
+            ["3"] = true,
+            ["4"] = true,
+            ["5"] = true,
+            ["6"] = true,
+            ["7"] = true,
+            ["8"] = true,
+            ["9"] = true,
+            ["10"] = true,
+            ["11"] = true,
+            ["12"] = true,
+        }
+    },
+    ["legtahoe"] = {
+        ["extras"] = {
+            --["1"] = false,
+            ["2"] = true,
+            ["3"] = true,
+            --["4"] = false,
+            ["5"] = true,
+            ["6"] = true,
+            ["7"] = true,
+            ["8"] = true,
+            ["9"] = true,
+            ["10"] = true,
+            ["11"] = true,
+            ["12"] = true,
+        }
+    },
+    ["EMSF250"] = {
+        ["extras"] = {
+            --["1"] = false,
+            ["2"] = true,
+            ["3"] = true,
+            ["4"] = true,
+            ["5"] = true,
+            ["6"] = true,
+            ["7"] = true,
+            ["8"] = true,
+            ["9"] = true,
+            ["10"] = true,
+            ["11"] = true,
+            ["12"] = true,
+        }
+    },
+    ["legchgr"] = {
+        ["extras"] = {
+            --["1"] = false,
+            --["2"] = false,
+            ["3"] = true,
+            ["4"] = true,
+            ["5"] = true,
+            ["6"] = true,
+            ["7"] = true,
+            ["8"] = true,
+            ["9"] = true,
+            ["10"] = true,
+            ["11"] = true,
+            ["12"] = true,
+        }
+    },
+    ["legexp"] = {
+        ["extras"] = {
+            --["1"] = false,
+            --["2"] = false,
+            ["3"] = true,
+            ["4"] = true,
+            ["5"] = true,
+            ["6"] = true,
+            ["7"] = true,
+            ["8"] = true,
+            ["9"] = true,
+            ["10"] = true,
+            ["11"] = true,
+            ["12"] = true,
+        }
+    },
+    ["17silvrb"] = {
+        ["extras"] = {
+            --["1"] = false,
+            ["2"] = true,
+            --["3"] = false,
+            ["4"] = true,
+            ["5"] = true,
+            --["6"] = false,
+            ["7"] = true,
+            ["8"] = true,
+            --["9"] = false,
+            --["10"] = false,
             ["11"] = true,
             ["12"] = true,
         }
